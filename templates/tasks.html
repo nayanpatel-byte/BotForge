@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="mb-4">Level {{ user.current_level }} Challenge</h3>
+
+<div class="card p-4 shadow-sm">
+    <form method="POST">
+
+        <div class="mb-3">
+            <label class="form-label">Completion Time (seconds)</label>
+            <input type="number" name="time" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Collision Count</label>
+            <input type="number" name="collisions" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Energy Usage</label>
+            <input type="number" name="energy" class="form-control" required>
+        </div>
+
+        <button class="btn btn-primary">Submit Task</button>
+
+    </form>
+</div>
+
+{% endblock %}

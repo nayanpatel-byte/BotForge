@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">Tutorials</h2>
+
+<div class="card p-4 shadow-sm">
+    <h5>Level {{ user.current_level }} Tutorial</h5>
+
+    <iframe width="100%" height="315" src="" frameborder="0"></iframe>
+
+    <p class="text-muted">Video link will be inserted here.</p>
+
+    {% if not user.tutorial_completed %}
+    <form method="POST">
+        <button class="btn btn-success mt-3">Mark Tutorial as Completed</button>
+    </form>
+    {% else %}
+        <p class="text-success mt-3"><strong>Tutorial Completed ✔</strong></p>
+    {% endif %}
+</div>
+
+{% endblock %}
