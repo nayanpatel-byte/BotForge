@@ -1,28 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h2 class="mb-4">Upcoming Events</h2>
-
-<div class="card p-4 shadow-sm mb-4">
-    <h5>Algorithm Sprint Challenge</h5>
-    <p>Date: 25th July 2026</p>
-    <p>Compete to optimize path planning under time constraints.</p>
-    <button class="btn btn-primary">Register</button>
+<div class="text-center mb-5">
+    <h2 class="display-5">Special Operations</h2>
+    <p class="text-info">Join global challenges and earn rare badges!</p>
 </div>
 
-<div class="card p-4 shadow-sm mb-4">
-    <h5>Energy Efficiency Cup</h5>
-    <p>Date: 5th August 2026</p>
-    <p>Minimize motor runtime while completing the arena.</p>
-    <button class="btn btn-primary">Register</button>
-</div>
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 p-4 border-info bg-dark">
+            <div class="mb-3 fs-1 text-center">🏎️</div>
+            <h5 class="text-info font-bungee">Algorithm Sprint</h5>
+            <p class="small text-secondary mb-2">DATE: 25th July 2026</p>
+            <p class="card-text">Race against time! Code the fastest path through the obstacle course.</p>
+            <button class="btn btn-outline-info w-100 mt-auto">JOIN MISSION</button>
+        </div>
+    </div>
 
-<div class="card p-4 shadow-sm">
-    <h5>Maze Masters League</h5>
-    <p>Date: 20th August 2026</p>
-    <p>Solve advanced navigation challenges using structured algorithms.</p>
-    <button class="btn btn-primary">Register</button>
-</div>
+    <div class="col-md-4">
+        <div class="card h-100 p-4 border-warning bg-dark">
+            <div class="mb-3 fs-1 text-center">🔋</div>
+            <h5 class="text-warning font-bungee">Energy Cup</h5>
+            <p class="small text-secondary mb-2">DATE: 5th August 2026</p>
+            <p class="card-text">Eco-Pilot challenge: Complete the arena using the least amount of battery power.</p>
+            <button class="btn btn-outline-warning w-100 mt-auto">JOIN MISSION</button>
+        </div>
+    </div>
 
+    <div class="col-md-4">
+        <div class="card h-100 p-4 border-primary bg-dark">
+            <div class="mb-3 fs-1 text-center">🧩</div>
+            <h5 class="text-primary font-bungee">Maze Masters</h5>
+            <p class="small text-secondary mb-2">DATE: 20th August 2026</p>
+            <p class="card-text">The ultimate test: Navigate the shifting labyrinth using sensor data.</p>
+            <button class="btn btn-outline-primary w-100 mt-auto">JOIN MISSION</button>
+        </div>
+    </div>
+</div>
 {% endblock %}

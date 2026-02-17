@@ -1,38 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="text-center mb-5">
+    <h2 class="display-5 text-info">Commander's Dashboard</h2>
+    <p class="text-secondary">Your journey to becoming a Master Engineer</p>
+</div>
 
-<h2 class="mb-4">Dashboard</h2>
-
-<div class="card p-4 shadow-sm">
-    <h4>Your Progress</h4>
-    <p><strong>Current Level:</strong> {{ user.current_level }}</p>
-    <p><strong>Total Score:</strong> {{ user.total_score }}</p>
-
-    <div class="progress mb-3">
-        <div class="progress-bar bg-success"
-             style="width: {{ (user.current_level / 4) * 100 }}%;">
-            {{ (user.current_level / 4) * 100 }}%
+<div class="card p-4 shadow-lg mb-5 border-info">
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <h4>Level {{ user.current_level }} Status</h4>
+            <p class="mb-2">Total Power Points: <span class="text-warning">{{ user.total_score }} ⭐</span></p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"
+                     style="width: {{ (user.current_level / 4) * 100 }}%;">
+                    {{ (user.current_level / 4) * 100 }}% XP
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <h1 class="display-2">🚀</h1>
         </div>
     </div>
 </div>
 
-<div class="row mt-4 text-center">
-
+<h3 class="mb-4">Mission Map</h3>
+<div class="row g-4">
     {% for level in range(1,5) %}
     <div class="col-md-3">
-        <div class="card level-card p-4 shadow-sm
-        {% if user.current_level >= level %}
-            bg-success text-white
-        {% else %}
-            bg-secondary text-white
-        {% endif %}
-        ">
-            <h5>Level {{ level }}</h5>
+        <div class="card p-4 text-center h-100 
+            {% if user.current_level >= level %}
+                border-success bg-opacity-25 bg-success
+            {% else %}
+                opacity-50
+            {% endif %}">
+            <h1 class="mb-3">
+                {% if user.current_level > level %} ✅ 
+                {% elif user.current_level == level %} 🛰️
+                {% else %} 🔒 {% endif %}
+            </h1>
+            <h5 class="mb-0">Sector {{ level }}</h5>
+            <small>{{ "Completed" if user.current_level > level else ("Current" if user.current_level == level else "Locked") }}</small>
         </div>
     </div>
     {% endfor %}
-
 </div>
-
 {% endblock %}

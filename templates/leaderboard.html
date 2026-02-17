@@ -1,30 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h2 class="mb-4 text-center">🏆 Galactic Leaderboard</h2>
 
-<h2 class="mb-4">Leaderboard</h2>
-
-<div class="card p-4 shadow-sm">
-    <table class="table table-hover">
-        <thead>
+<div class="card p-4 shadow-lg border-0 bg-dark">
+    <table class="table table-dark table-hover mb-0">
+        <thead class="text-info">
             <tr>
                 <th>Rank</th>
-                <th>Name</th>
-                <th>Level</th>
-                <th>Total Score</th>
+                <th>Pilot Name</th>
+                <th>Current Sector</th>
+                <th>Total XP</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="align-middle">
             {% for user in users %}
-            <tr>
-                <td>{{ loop.index }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.current_level }}</td>
-                <td>{{ user.total_score }}</td>
+            <tr style="height: 70px;">
+                <td>
+                    {% if loop.index == 1 %} 🥇 
+                    {% elif loop.index == 2 %} 🥈 
+                    {% elif loop.index == 3 %} 🥉 
+                    {% else %} {{ loop.index }} {% endif %}
+                </td>
+                <td class="fw-bold fs-5">{{ user.name }}</td>
+                <td><span class="badge rounded-pill bg-info text-dark">Lvl {{ user.current_level }}</span></td>
+                <td class="text-warning fw-bold">{{ user.total_score }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
-
 {% endblock %}

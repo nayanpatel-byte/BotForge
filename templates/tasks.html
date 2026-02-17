@@ -1,30 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="max-width-600 mx-auto">
+    <h3 class="mb-4 text-center text-info">Input Mission Data: Sector {{ user.current_level }}</h3>
 
-<h3 class="mb-4">Level {{ user.current_level }} Challenge</h3>
+    <div class="card p-5 shadow-lg border-info">
+        <form method="POST">
+            <div class="mb-4">
+                <label class="form-label text-info fw-bold">⏱️ Completion Time (Seconds)</label>
+                <input type="number" name="time" class="form-control form-control-lg bg-dark text-white border-info" placeholder="0" required>
+            </div>
 
-<div class="card p-4 shadow-sm">
-    <form method="POST">
+            <div class="mb-4">
+                <label class="form-label text-danger fw-bold">💥 Collision Count</label>
+                <input type="number" name="collisions" class="form-control form-control-lg bg-dark text-white border-danger" placeholder="0" required>
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label">Completion Time (seconds)</label>
-            <input type="number" name="time" class="form-control" required>
-        </div>
+            <div class="mb-4">
+                <label class="form-label text-warning fw-bold">🔋 Energy Usage (mAh)</label>
+                <input type="number" name="energy" class="form-control form-control-lg bg-dark text-white border-warning" placeholder="0" required>
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label">Collision Count</label>
-            <input type="number" name="collisions" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Energy Usage</label>
-            <input type="number" name="energy" class="form-control" required>
-        </div>
-
-        <button class="btn btn-primary">Submit Task</button>
-
-    </form>
+            <button class="btn btn-primary w-100 py-3 fs-5">SUBMIT TELEMETRY 📡</button>
+        </form>
+    </div>
 </div>
-
 {% endblock %}
